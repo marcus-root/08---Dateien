@@ -6,14 +6,14 @@
         {
             String dateiname = "ausgabeDateiFürAufgabeDateien.txt"; // Legt den Dateinamen fest
             String dateipfad = Suche(dateiname); // Sucht die Zieldatei und speichert den Dateipfad in der Variable
+            String endString = "."; // legt die Zeichenfolge fest mit der die Eingabe beendet wird
             List<String> eingabeZeilen;
 
-            Console.WriteLine();
             if (dateipfad != "-1") // Wenn die Datei gefunden wurde
             {
-                Console.WriteLine($"Datei {dateiname} wurde gefunden!\nGeben Sie Text ein und Beenden Sie Ihre Eingabe mit einem Punkt \".\"\n");
-                eingabeZeilen = Einlesen("."); // Liest alle Zeilen ein bis eine Zeile nur aus einem Punkt besteht
-                Console.WriteLine($"\nDatei {dateiname} wurde mit Ihrer Eingabe und Zeitstempeln überschrieben!");
+                Console.WriteLine($"Datei {dateiname} \nwurde in {dateipfad.Replace(dateiname, "")} gefunden!\nGeben Sie Text ein und Beenden Sie Ihre Eingabe mit einem Punkt \".\"\n");
+                eingabeZeilen = Einlesen(endString); // Liest alle Zeilen ein bis eine Zeile nur aus endString besteht
+                Console.WriteLine($"\nDatei {dateiname} wurde mit Ihrer Eingabe und Zeitstempeln ergänzt!");
                 // LeereDatei(dateipfad); // leert die Datei
                 SchreibeInDatei(dateipfad, eingabeZeilen); // Anhängen des eingegebenen Textes an die Datei
             }
